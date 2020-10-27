@@ -47,7 +47,7 @@ pipeline {
           steps {
               rtServer (
                       id: "art1",
-                      url: "http://3.16.10.158/artifactory",
+                      url: "http://3.138.194.41//artifactory",
                       credentialsId: "artifactory"
               )
 
@@ -89,11 +89,5 @@ pipeline {
 
 
 
-  }
-  post {
-    always {
-       junit '**/*.xml'
-       slackSend channel: 'devops_sept_2020', color: 'red', message: "BUILD FAILD - $JOB_NAME - $BUILD_ID", teamDomain: 'pragraconsulting2020', tokenCredentialId: 'slack'
-    }
   }
 }
